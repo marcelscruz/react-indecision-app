@@ -1,21 +1,49 @@
 'use strict';
 
-console.log('works');
+// create app object title/subtitle
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Let a machine decide for you',
+  options: ['One', 'Two']
+};
 
+// JSX - JavaScript XML
 var template = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Indecision App'
+    app.title
+  ),
+  app.subtitle && React.createElement(
+    'p',
+    null,
+    app.subtitle
   ),
   React.createElement(
     'p',
     null,
-    'This is some info'
+    app.options.length > 0 ? 'Here are your options: ' : 'No options'
   )
 );
+
+var user = {
+  name: 'Marcel',
+  age: 26,
+  location: 'Dublin'
+};
+
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      'p',
+      null,
+      'Location: ',
+      location
+    );
+  }
+}
 
 var templateTwo = React.createElement(
   'div',
@@ -23,20 +51,17 @@ var templateTwo = React.createElement(
   React.createElement(
     'h1',
     null,
-    'Marcel Cruz'
+    user.name ? user.name : 'Anonymous'
   ),
-  React.createElement(
+  user.age && user.age >= 18 && React.createElement(
     'p',
     null,
-    'Age: 26'
+    'Age: ',
+    user.age
   ),
-  React.createElement(
-    'p',
-    null,
-    'Location: Dublin'
-  )
+  getLocation(user.location)
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
