@@ -1,67 +1,30 @@
 'use strict';
 
-// create app object title/subtitle
-var app = {
-  title: 'Indecision App',
-  subtitle: 'Let a machine decide for you',
-  options: ['One', 'Two']
+// const square = function (x) {
+//   return x * x;
+// };
+//
+// const squareArrow = (x) => {
+//   return x * x;
+// };
+//
+// const squareArrow2 = (x) => x * x;
+//
+// console.log(square(8));
+// console.log(squareArrow(9));
+
+// Challenge - use arrow functions
+// Create regular arrow function
+// Create arrow function using shorthand syntax
+
+var getFirstName = function getFirstName(fullName) {
+  return fullName.split(' ')[0];
 };
 
-// JSX - JavaScript XML
-var template = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    app.title
-  ),
-  app.subtitle && React.createElement(
-    'p',
-    null,
-    app.subtitle
-  ),
-  React.createElement(
-    'p',
-    null,
-    app.options.length > 0 ? 'Here are your options: ' : 'No options'
-  )
-);
-
-var user = {
-  name: 'Marcel',
-  age: 26,
-  location: 'Dublin'
+var getFirstName2 = function getFirstName2(fullName) {
+  return fullName.split(' ')[0];
 };
 
-function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      'p',
-      null,
-      'Location: ',
-      location
-    );
-  }
-}
+console.log(getFirstName('Marcel Cruz'));
 
-var templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    user.name ? user.name : 'Anonymous'
-  ),
-  user.age && user.age >= 18 && React.createElement(
-    'p',
-    null,
-    'Age: ',
-    user.age
-  ),
-  getLocation(user.location)
-);
-
-var appRoot = document.getElementById('app');
-
-ReactDOM.render(template, appRoot);
+console.log(getFirstName2('First Last'));
