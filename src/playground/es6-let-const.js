@@ -1,6 +1,10 @@
+// var is function scope
+
 var nameVar = 'Marcel';
 var nameVar = 'Cruz';
 console.log('nameVar', nameVar);
+
+// let and const are block scope (includes function)
 
 let nameLet = 'Let';
 nameLet = 'Let2';
@@ -9,24 +13,27 @@ console.log('nameLet', nameLet);
 const nameConst = 'Const';
 console.log('nameConst', nameConst);
 
-// function scope
-
 function getPetName() {
-  var petName = 'Hal';
+  const petName = 'Aika';
   return petName;
 }
 
 const petName = getPetName();
 console.log(petName);
 
-// block scope
+// Block scoping
 
 const fullName = 'Marcel Cruz';
 
 if (fullName) {
-  let firstName = fullName.split(' ')[0];
+  var firstName = fullName.split(' ')[0];
+  let lastName = fullName.split(' ')[1];
   console.log(firstName);
+  console.log(lastName);
 }
 
-// it won't run because let and const are block level scope
-// console.log(firstName);
+// will work
+console.log(firstName);
+
+// won't work
+console.log(lastName);
