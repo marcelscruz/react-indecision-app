@@ -4,10 +4,12 @@ class Person {
     this.age = age;
   }
   getGreeting() {
+    //return 'Hi, I am ' + this.name + '!';
+    // es6 feature down below - template string
     return `Hi, I am ${this.name}!`;
   }
   getDescription() {
-    return `${this.name} is ${this.age} year(s) old.`;
+    return `${this.name} is ${this.age} years old.`
   }
 }
 
@@ -22,7 +24,7 @@ class Student extends Person {
   getDescription() {
     let description = super.getDescription();
 
-    if (this.hasMajor()) {
+    if(this.hasMajor()) {
       description += ` Their major is ${this.major}.`;
     }
 
@@ -35,22 +37,34 @@ class Traveler extends Person {
     super(name, age);
     this.homeLocation = homeLocation;
   }
-  isTravelling() {
-    return !!this.homeLocation;
-  }
   getGreeting() {
     let greeting = super.getGreeting();
-
-    if(this.isTravelling()) {
-      greeting += ` I'm visiting from ${this.homeLocation}.`
+    if(this.homeLocation) {
+      greeting += ` I am visiting from ${this.homeLocation}.`
     }
 
     return greeting;
   }
 }
 
-const me = new Traveler('Marcel Cruz', 26, 'Dublin');
-console.log(me.getGreeting());
+// Traveler -> Person
+// Add support for homeLocation
+// Override getGreeting
+// 1. Hi, I am Marcel. I'm visiting from Pelotas.
+// or
+// 2. Hi, I am Marcel.
+
+const me = new Person('Marcel', 26);
+console.log(me.getDescription());
 
 const other = new Student();
 console.log(other.getDescription());
+
+const student = new Student('Cruz', 27, 'IT');
+console.log(student.getDescription());
+
+const traveler = new Traveler('Viajante', 28, 'Pelotas');
+console.log(traveler.getGreeting());
+
+const traveler2 = new Traveler('Viajante2', 28);
+console.log(traveler2.getGreeting());
