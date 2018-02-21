@@ -4,7 +4,7 @@ Let a computer make decisions for you.
 
 ## Project
 
-This web app was created based on Andrew Mead's React course version 2. In this app you can submit a list of things you should do and let the computer decide for you which one you should do next.
+This web app was created based on Andrew Mead's React course. In this app you can submit a list of things you should do and let the computer decide for you which one you should do next.
 
 ## Installing
 
